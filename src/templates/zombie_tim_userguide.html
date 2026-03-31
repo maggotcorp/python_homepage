@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Zombie Tim - User Guide - MaggotCorp{% endblock %}
+
+{% block content %}
+<div class="container document-content">
+    <h1>🧟 Zombie Tim - User Guide 🧟</h1>
+    <p>Welcome to the official user guide for <strong>Zombie Tim</strong>, your favorite undead AI assistant! This guide will help you navigate the gory details of interacting with Tim and making the most of his decaying brain.</p>
+    <h2>🚀 Getting Started</h2>
+    <p>When you first open the app, you'll be greeted by <strong>Zombie Tim</strong> himself. He might be a bit twitchy, but he's friendly (mostly)!</p>
+    <ol>
+        <li><strong>Launch the App</strong>: Open Zombie Tim on your Android, iOS, Web, Linux, Windows, or macOS device.</li>
+        <li><strong>Initialize</strong>: On first run, Tim sets up his "Brain Database" (SQLite) to remember your interactions.</li>
+        <li><strong>Start Chatting</strong>: Use the bottom navigation to jump between screens.</li>
+    </ol>
+    <h2>📱 Main Interface</h2>
+    <p>The app has three main screens accessible via the bottom navigation bar:</p>
+    <ol>
+        <li><strong>Chat (💬)</strong>: The main interface for talking to Tim. Interact with Tim's animated avatar and enjoy the blood-splattered UI.</li>
+        <li><strong>Scan (🔍)</strong>: Tim can help you look through your device's storage or "sniff out" new vocabulary from the internet.</li>
+        <li><strong>Settings (⚙️)</strong>: Customize Tim's behavior, manage permissions, and view "Brain Stats."</li>
+    </ol>
+    <h2>💬 Chatting with Tim</h2>
+    <p>Tim loves to talk, especially about <strong>Brains</strong>, <strong>Technology</strong>, and <strong>Queen Victoria</strong>.</p>
+    <h3>Special Commands</h3>
+    <p>Type naturally or use specific keywords to trigger Tim's specialized logic:</p>
+    <ul>
+        <li><code>eat word <word></code>: Tells Tim to look up a specific word and add it to his vocabulary.</li>
+        <li><code>vocabulary</code>: Shows a summary of what Tim has learned recently.</li>
+        <li><code>brain stats</code>: Displays Tim's current IQ and total word count.</li>
+        <li><code>generate code <language> <description></code>: Tim simplifies complex tech topics or writes snippets in Python, Dart, C++, etc.</li>
+        <li><code>magic 8 ball <question></code>: Ask Tim to predict the future!</li>
+        <li><code>clear chat</code>: Wipes Tim's short-term memory.</li>
+    </ul>
+    <h3>Interaction Tips</h3>
+    <ul>
+        <li><strong>Mention Queen Victoria</strong>: It triggers his utmost respect and perhaps a Victorian-era anecdote.</li>
+        <li><strong>Talk about Brains</strong>: He finds it highly engaging.</li>
+        <li><strong>Loyalty</strong>: Tim is a loyal subject. Treat him well!</li>
+    </ul>
+    <h2>🔍 The Scan Screen</h2>
+    <p>Use this screen to help Tim "forage" for information on your device or the internet.</p>
+    <h3>File Hunting</h3>
+    <ul>
+        <li><strong>Scan Brains (Internal)</strong>: Scans the app's internal storage.</li>
+        <li><strong>Scan Graveyard (External)</strong>: Scans your device's external storage.</li>
+        <li><strong>Sniff Directory</strong>: Pick a specific folder for Tim to examine.</li>
+    </ul>
+    <h3>Vocabulary Feasts</h3>
+    <ul>
+        <li><strong>Mass Vocabulary Feast</strong>: Tim reaches out to the internet and devours <strong>50 random words</strong> at once to boost his IQ instantly.</li>
+    </ul>
+    <h2>⚙️ Settings & Stats</h2>
+    <ul>
+        <li><strong>Clear Brain</strong>: Reset everything Tim has learned.</li>
+        <li><strong>Database Size</strong>: See how much space Tim's memories are taking up.</li>
+        <li><strong>Status</strong>: Check if Tim is feeling particularly "hungry" or "smart."</li>
+    </ul>
+    <h2>🏗 Building from Source</h2>
+    <p>If you are a developer, you can build Zombie Tim using the included <code>Makefile</code>:</p>
+    <ul>
+        <li><code>make android</code>: Build the Release APK.</li>
+        <li><code>make linux</code>: Build the Linux binary.</li>
+        <li><code>make podman-setup</code>: (Linux Hosts) Setup the macOS builder container (Requires Podman and Ansible).</li>
+        <li><code>make build-macos-podman</code>: Build the macOS version using the container.</li>
+        <li><code>make build-ios-podman</code>: Build the iOS version using the container.</li>
+        <li><code>make test</code>: Run the undead test suite.</li>
+    </ul>
+    <h2>🆘 Support & Feedback</h2>
+    <p>If Tim becomes too "braindead" or encounters an error:</p>
+    <ol>
+        <li>Go to <strong>Settings</strong> -> <strong>Clear Knowledge Base</strong> to reset his database.</li>
+        <li>Check the <code>README.md</code> for technical troubleshooting.</li>
+        <li>Contact the creators at <code>timotheuzi@hotmail.com</code>.</li>
+    </ol>
+    <p><em>Remember: Tim might be undead, but his passion for clean code is very much alive!</em></p>
+    </div>
+{% endblock %}

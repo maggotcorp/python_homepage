@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project | replace('_', ' ') | title }} - {{ doc_type | replace('_', ' ') | title }} - MaggotCorp{% endblock %}
+
+{% block content %}
+    <h1>{{ project | replace('_', ' ') | title }} - {{ doc_type | replace('_', ' ') | title }}</h1>
+    <div class="document-content">
+        {{ content | safe }}
+    </div>
+{% endblock %}

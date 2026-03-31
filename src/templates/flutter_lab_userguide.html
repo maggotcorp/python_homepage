@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Flutter Lab - User Guide - MaggotCorp{% endblock %}
+
+{% block content %}
+<div class="container document-content">
+    <h1>Security Monitor AI - User Guide 📘</h1>
+    <p>Welcome to the <strong>Security Monitor AI</strong> user guide. This document provides a comprehensive overview of the application's features, how to interpret the data, and how to maximize your security posture using our tools.</p>
+    <h2>📋 Table of Contents</h2>
+    <ol>
+        <li><a href="#1-introduction">Introduction</a></li>
+        <li><a href="#2-getting-started">Getting Started</a></li>
+        <li><a href="#3-the-dashboard">The Dashboard</a></li>
+        <li><a href="#4-device-discovery--management">Device Discovery & Management</a></li>
+        <li><a href="#5-understanding-threats">Understanding Threats</a></li>
+        <li><a href="#6-hardware-sensor-monitor">Hardware Sensor Monitor</a></li>
+        <li><a href="#7-ai-anomaly-detection">AI Anomaly Detection</a></li>
+        <li><a href="#8-advanced-linuxandroid-features">Advanced Linux/Android Features</a></li>
+        <li><a href="#9-troubleshooting">Troubleshooting</a></li>
+    </ol>
+    <h2>1. Introduction</h2>
+    <p>Security Monitor AI is a multi-platform security suite inspired by the <strong>Shheissee</strong> and <strong>Shimmy</strong> roadmaps. It provides real-time monitoring of your network, Bluetooth environment, and physical hardware sensors to protect you from digital and physical intrusions.</p>
+    <h2>2. Getting Started</h2>
+    <p>When you first launch the application, it will:</p>
+    <ul>
+        <li>Request necessary permissions (Bluetooth, Location, Network).</li>
+        <li>Perform an initial security scan.</li>
+        <li>Establish a baseline for "Known Devices" (once you manually trust them).</li>
+    </ul>
+    <p><strong>Initial Setup Tip</strong>: Go to the <strong>Devices</strong> tab and review the discovered devices. Use the "Trust" button for your own phone, laptop, and peripherals to reduce false positive alerts.</p>
+    <h2>3. The Dashboard <a name="3-the-dashboard"></a></h2>
+    <p>The Dashboard is your command center:</p>
+    <ul>
+        <li><strong>Status Header</strong>: Green means "System Secure." Red indicates high-severity threats detected in the last minute.</li>
+        <li><strong>System Statistics</strong>: Quick glance at the count of discovered devices, active attacks, and network types.</li>
+        <li><strong>Recent Threats</strong>: A live-updating list of the 5 most recent security incidents.</li>
+    </ul>
+    <h2>4. Device Discovery & Management <a name="4-device-discovery--management"></a></h2>
+    <p>Located in the <strong>Devices</strong> tab, this screen lists all entities found nearby:</p>
+    <ul>
+        <li><strong>Network Devices</strong>: Identified by IP address.</li>
+        <li><strong>Bluetooth Devices</strong>: Identified by MAC address and Name.</li>
+        <li><strong>AirTags</strong>: Specifically flagged if Apple-compatible BLE tracking tokens are found.</li>
+        <li><strong>Trusting Devices</strong>: Tap "Trust" to whitelist a device. This prevents "Unknown Device" alerts in future scans.</li>
+    </ul>
+    <h2>5. Understanding Threats <a name="5-understanding-threats"></a></h2>
+    <p>Threats are categorized by severity:</p>
+    <ul>
+        <li>🔴 <strong>High</strong>: Immediate risks like unauthorized network devices, potential spoofing, or proximity-based Bluetooth attacks (KNOB).</li>
+        <li>🟠 <strong>Medium</strong>: Suspicious activities like RSSI anomalies (potential relay attacks) or detected AirTags.</li>
+        <li>🔵 <strong>Low</strong>: System actions, such as when a device is blocked or a scan is completed successfully.</li>
+    </ul>
+    <p>All history is preserved in the <strong>Logs</strong> tab.</p>
+    <h2>6. Hardware Sensor Monitor <a name="6-hardware-sensor-monitor"></a></h2>
+    <p>Access this via the <strong>Sensors</strong> tab. It provides raw data from your device's physical hardware:</p>
+    <ul>
+        <li><strong>Accelerometer/Gyroscope</strong>: Detects if your device is being moved, vibrated, or handled.</li>
+        <li><strong>Ambient Light</strong>: Can signal if a device has been removed from a pocket or if a camera is being covered.</li>
+        <li><strong>GPS</strong>: High-precision location tracking.</li>
+        <li><strong>Magnetometer</strong>: Detects magnetic interference or nearby electronic devices.</li>
+    </ul>
+    <h2>7. AI Anomaly Detection <a name="7-ai-anomaly-detection"></a></h2>
+    <p>The application uses built-in logic to identify patterns that standard scanners miss:</p>
+    <ul>
+        <li><strong>RSSI Anomaly</strong>: If a known device's signal strength changes drastically without physical movement, it may indicate a signal relay attack.</li>
+        <li><strong>Connection Frequency</strong>: If a device attempts to connect/disconnect dozens of times per minute, it is flagged as a potential brute-force or flooding attack.</li>
+        <li><strong>Mass Discovery</strong>: If 5+ unknown devices appear at once, the AI flags a "Mass Discovery Event," common in surveillance or high-density scanning environments.</li>
+    </ul>
+    <h2>8. Advanced Linux/Android Features <a name="8-advanced-linuxandroid-features"></a></h2>
+    <p>On <strong>Linux</strong> and <strong>Rooted Android</strong>, the app can leverage system tools:</p>
+    <ul>
+        <li><strong>Nmap/Fping</strong>: For deep port scanning.</li>
+        <li><strong>Bluetoothctl</strong>: To selectively block external MAC addresses.</li>
+        <li><strong>Iwlist/Airodump</strong>: For detecting WiFi deauthentication attacks.</li>
+    </ul>
+    <p><em>Note: These require the appropriate system packages (<code>bluez</code>, <code>wireless-tools</code>, <code>nmap</code>) to be installed on the host.</em></p>
+    <h2>9. Troubleshooting <a name="9-troubleshooting"></a></h2>
+    <ul>
+        <li><strong>No Bluetooth Devices</strong>: Ensure Bluetooth is enabled on your device and permissions are granted.</li>
+        <li><strong>Scan Failed</strong>: On Linux, ensure the user running the app has permissions for <code>raw sockets</code> (required for ping/nmap).</li>
+        <li><strong>Location Not Updating</strong>: Check if GPS is enabled and the app has "High Accuracy" permissions.</li>
+        <li><strong>High Battery Usage</strong>: Continuous monitoring of all sensors and network can be power-intensive. The app scans every 60 seconds by default to balance security and battery life.</li>
+    </ul>
+    <p><em>Security Hall Monitor.</em></p>
+    </div>
+{% endblock %}

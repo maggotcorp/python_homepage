@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}Dumb Phone - User Guide - MaggotCorp{% endblock %}
+
+{% block content %}
+<div class="container document-content">
+    <h1>Dumb Phone User Guide</h1>
+    <p>Welcome to Dumb Phone! This guide will help you understand and use the features of this network security application to protect your device and privacy.</p>
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#dashboard">Dashboard: Security at a Glance</a></li>
+        <li><a href="#firewall-modes">Firewall Modes</a></li>
+        <li><a href="#logs-and-activity">Logs and Activity</a></li>
+        <li><a href="#blocklists">Blocklists and Countries</a></li>
+        <li><a href="#firewall-rules">Firewall Rules</a></li>
+        <li><a href="#settings">Settings</a></li>
+    </ol>
+    <h2>1. Introduction <a name="introduction"></a></h2>
+    <p>Dumb Phone is designed to give you complete control over your device's network traffic. It uses Android's VPN Service API to intercept, analyze, and filter all outgoing and incoming packets.</p>
+    <p><strong>Important:</strong> When you first activate a firewall mode, Android will ask for <strong>VPN Permission</strong>. You must grant this for the application to function.</p>
+    <h2>2. Dashboard: Security at a Glance <a name="dashboard"></a></h2>
+    <p>The Dashboard is your main control center.</p>
+    <ul>
+        <li><strong>Firewall Status</strong>: Shows which modes are currently active (Dumb Phone Mode, Soft Firewall Mode, or Both).</li>
+        <li><strong>Quick Insights</strong>: Real-time counters for blocked connections and allowed connections.</li>
+        <li><strong>Recent Activity</strong>: A quick preview of the last few network connections handled by the firewall.</li>
+    </ul>
+    <h3>Toggling Firewall Modes</h3>
+    <p>Each firewall mode has an <strong>Activate/Deactivate</strong> button:</p>
+    <ul>
+        <li>Tap <strong>Activate Now</strong> to start the firewall mode</li>
+        <li>Tap <strong>Deactivate</strong> to stop the firewall mode</li>
+        <li>The button will be disabled while the toggle operation is in progress to prevent multiple simultaneous toggles</li>
+    </ul>
+    <h2>3. Firewall Modes <a name="firewall-modes"></a></h2>
+    <h3>Dumb Phone Mode <a name="dumb-phone-mode"></a></h3>
+    <p>This is the most restrictive mode. It follows a "Block All by Default" policy.</p>
+    <ul>
+        <li><strong>What it does</strong>: Blocks all network traffic.</li>
+        <li><strong>Exceptions</strong>: It automatically allows traffic essential for Voice over IP (VoIP) and text messaging (SIP, SMTP/IMAP ports).</li>
+        <li><strong>When to use</strong>: Use this when you want maximum privacy and want to ensure no background apps are communicating with the internet.</li>
+    </ul>
+    <h3>Soft Firewall <a name="soft-firewall"></a></h3>
+    <p>A more flexible protection mode.</p>
+    <ul>
+        <li><strong>What it does</strong>: Allows traffic by default but filters it against your custom rules and the country blacklist.</li>
+        <li><strong>When to use</strong>: Use this for everyday protection without breaking most applications.</li>
+        <li><strong>How it works</strong>: 
+        <ol>
+            <li>First checks if the connection matches any custom firewall rules</li>
+            <li>Then checks if the destination IP is in any active country blacklist</li>
+            <li>If no rules match, the connection is allowed by default</li>
+        </ol></li>
+    </ul>
+    <h2>4. Logs and Activity <a name="logs-and-activity"></a></h2>
+    <p>The <strong>Logs</strong> screen provides a detailed history of every connection.</p>
+    <ul>
+        <li><strong>Blocked entries</strong> appear in red.</li>
+        <li><strong>Allowed entries</strong> appear in green.</li>
+        <li>Each log shows the destination IP, port, protocol, and the time of the event.</li>
+        <li>You can search logs by IP address or filter them by date.</li>
+        <li>Tap on any log entry to see detailed information including source IP, process name, and package name.</li>
+    </ul>
+    <h3>Log Filtering</h3>
+    <ul>
+        <li><strong>IP Filter</strong>: Enter an IP address to show only logs matching that IP</li>
+        <li><strong>Date Range</strong>: Select a start and end date to filter logs by time period</li>
+        <li><strong>Clear Filters</strong>: Remove all active filters to see all logs</li>
+    </ul>
+    <h2>5. Blocklists and Countries <a name="blocklists"></a></h2>
+    <p>You can block entire countries to prevent any communication with servers located there.</p>
+    <ul>
+        <li>Navigate to the <strong>Blocklist</strong> section.</li>
+        <li>Toggle countries on/off to instantly update the firewall rules.</li>
+        <li>The app uses a pre-loaded database of IP ranges for each country.</li>
+        <li>Changes take effect immediately without waiting for the next refresh cycle.</li>
+    </ul>
+    <h3>Adding Countries</h3>
+    <ol>
+        <li>Tap the <strong>Add Country</strong> button</li>
+        <li>Enter the country code (e.g., CN, RU, US)</li>
+        <li>Enter the country name</li>
+        <li>Select a threat level (Low, Medium, High, Critical, Malicious, Suspicious)</li>
+        <li>Optionally add custom IP ranges in CIDR format</li>
+        <li>Tap <strong>Add to List</strong></li>
+    </ol>
+    <h3>Viewing Country Details</h3>
+    <p>Tap on any country in the blocklist to see:</p>
+    <ul>
+        <li>Threat level</li>
+        <li>Status (Active/Inactive)</li>
+        <li>Number of blocked connections</li>
+        <li>Number of loaded IP ranges</li>
+        <li>List of blocked IP ranges</li>
+    </ul>
+    <h3>Removing Countries</h3>
+    <ol>
+        <li>Tap on a country to open details</li>
+        <li>Tap <strong>Remove</strong> to delete the country from the blocklist</li>
+        <li>The firewall rules will be refreshed immediately</li>
+    </ol>
+    <h2>6. Firewall Rules <a name="firewall-rules"></a></h2>
+    <p>Create custom rules to allow or block specific traffic.</p>
+    <h3>Creating a Rule</h3>
+    <ol>
+        <li>Navigate to the <strong>Rules</strong> section</li>
+        <li>Tap <strong>Add Rule</strong></li>
+        <li>Select the rule type:
+        <ul>
+            <li><strong>IP Address</strong>: Block/allow traffic to/from a specific IP</li>
+            <li><strong>Port</strong>: Block/allow traffic on a specific port</li>
+            <li><strong>Protocol</strong>: Block/allow traffic using a specific protocol (TCP/UDP)</li>
+        </ul></li>
+        <li>Enter the value (IP address, port number, or protocol)</li>
+        <li>Optionally specify a port and protocol</li>
+        <li>Select the action: <strong>Allow</strong> or <strong>Block</strong></li>
+        <li>Tap <strong>Save Rule</strong></li>
+    </ol>
+    <h3>Managing Rules</h3>
+    <ul>
+        <li><strong>Toggle Rules</strong>: Use the switch to enable/disable rules without deleting them</li>
+        <li><strong>Delete Rules</strong>: Tap the delete icon to permanently remove a rule</li>
+        <li><strong>View Rule Details</strong>: See all rule parameters at a glance</li>
+    </ul>
+    <h2>7. Settings <a name="settings"></a></h2>
+    <ul>
+        <li><strong>Log Retention</strong>: Choose how many days of logs to keep (1-30 days). Older logs are automatically purged to save space.</li>
+        <li><strong>Clear Logs</strong>: Manually delete all recorded activity.</li>
+        <li><strong>Update Database</strong>: Refresh the threat intelligence and country IP range data.</li>
+    </ul>
+    <h2>Privacy and Security</h2>
+    <p><strong>Privacy Note</strong>: All processing and logging happen locally on your device. Your network traffic data is never sent to our servers.</p>
+    <p><strong>Security Features</strong>:</p>
+    <ul>
+        <li>VPN-based traffic interception</li>
+        <li>Real-time packet filtering</li>
+        <li>Country-based IP blocking</li>
+        <li>Custom rule engine</li>
+        <li>Local-only data storage</li>
+    </ul>
+    <h2>Troubleshooting</h2>
+    <h3>VPN Permission Issues</h3>
+    <p>If the app cannot start the firewall:</p>
+    <ol>
+        <li>Ensure you granted VPN permission when prompted</li>
+        <li>Check that no other VPN app is running</li>
+        <li>Try restarting the app</li>
+    </ol>
+    <h3>Rules Not Taking Effect</h3>
+    <p>If your rules don't seem to work:</p>
+    <ol>
+        <li>Ensure the rule is enabled (toggle is on)</li>
+        <li>Check that the rule type and value are correct</li>
+        <li>For country blacklists, ensure the country is marked as Active</li>
+        <li>The firewall refreshes rules every 30 seconds, or immediately when you make changes</li>
+    </ol>
+    <h3>High Battery Usage</h3>
+    <p>The VPN service runs continuously when active. To reduce battery usage:</p>
+    <ol>
+        <li>Use Soft Firewall mode instead of Dumb Phone mode when possible</li>
+        <li>Deactivate the firewall when not needed</li>
+        <li>Reduce the number of active rules</li>
+    </ol>
+    <p><strong>Need Help?</strong> Open an issue on the project repository for support.</p>
+    </div>
+{% endblock %}

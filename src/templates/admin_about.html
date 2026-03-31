@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Admin - Edit About{% endblock %}
+
+{% block content %}
+    <h1>Edit About Us Section</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div id="editor-container"></div>
+        {{ form.content(style="display:none;") }}
+        {{ form.submit }}
+    </form>
+
+    <link href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
+    <script>
+        const quill = new Quill('#editor-container', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline'],
+                    ['link', 'image'],
+                    [{ list: 'ordered' }, { list: 'bullet' }]
+                ]
+            }
+        });
+
+        const form = document.querySelector('form');
+        const contentInput = document.querySelector('#content');
+
+        // Set initial content
+        quill.root.innerHTML = contentInput.value;
+
+        // Sync on submit
+        form.onsubmit = function() {
+            contentInput.value = quill.root.innerHTML;
+        };
+    </script>
+
+    <style>
+        #editor-container {
+            height: 300px;
+            margin-bottom: 1rem;
+        }
+    </style>
+{% endblock %}

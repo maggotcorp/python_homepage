@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Flutter Lab - README - MaggotCorp{% endblock %}
+
+{% block content %}
+<div class="container document-content">
+    <h1>Security Monitor AI 🛡️</h1>
+    <p>A comprehensive, intelligent security monitoring application built with Flutter, designed for Android and Linux. This project merges and enhances the functionality of the <strong>Shheissee</strong> IDS and <strong>Shimmy</strong> monitoring tools into a modern, beautiful GUI application.</p>
+    <h2>🚀 Overview</h2>
+    <p>Security Monitor AI provides real-time oversight of your digital and physical environment. It uses machine learning patterns to detect anomalies in network traffic, Bluetooth signals, and hardware sensor data.</p>
+    <h2>✨ Features</h2>
+    <h3>🔍 Network & WiFi Monitoring</h3>
+    <ul>
+        <li><strong>Automatic Discovery</strong>: Scans local networks for new and disappeared devices.</li>
+        <li><strong>Threat Detection</strong>: Identifies suspicious open ports (RDP, Telnet, FTP, SMB).</li>
+        <li><strong>WiFi Security</strong>: Detects Rogue Access Points, Evil Twin attacks, and unencrypted networks.</li>
+        <li><strong>Deauthentication Alerts</strong>: Monitors for WiFi deauth attacks (Linux/Rooted Android).</li>
+    </ul>
+    <h3>📡 Bluetooth Attack Detection</h3>
+    <ul>
+        <li><strong>Attack Recognition</strong>: Detects KNOB (Proximity), BIAS (Impersonation), and BlueBorne vulnerabilities.</li>
+        <li><strong>AirTag Detection</strong>: Monitors BLE for Apple AirTags and Find My network-enabled devices.</li>
+        <li><strong>Signal Analysis</strong>: Tracks RSSI history to identify potential relay attacks.</li>
+        <li><strong>Selective Blocking</strong>: Capability to block external Bluetooth devices while preserving trusted connections.</li>
+    </ul>
+    <h3>🤖 AI Anomaly Detection</h3>
+    <ul>
+        <li><strong>RSSI Anomaly</strong>: Uses standard deviation analysis to flag sudden signal strength changes.</li>
+        <li><strong>Connection Patterns</strong>: Detects unusually frequent connection attempts (potential brute-force/flooding).</li>
+        <li><strong>Mass Device Discovery</strong>: Alerts when a suspicious number of unknown devices appear simultaneously.</li>
+    </ul>
+    <h3>📊 Hardware Sensor Monitor</h3>
+    <ul>
+        <li><strong>Real-time Streams</strong>: Live monitoring of Accelerometer, Gyroscope, and Magnetometer.</li>
+        <li><strong>Environment Sensing</strong>: Ambient light detection and precise GPS tracking.</li>
+        <li><strong>Battery Health</strong>: Continuous status monitoring of power levels and charging states.</li>
+    </ul>
+    <h3>🎨 Beautiful Modern UI</h3>
+    <ul>
+        <li><strong>Unified Dashboard</strong>: Real-time security status and quick statistics.</li>
+        <li><strong>Dark/Light Mode</strong>: Full support for system-wide themes.</li>
+        <li><strong>Detailed Logs</strong>: Categorized threat logs with severity-based color coding.</li>
+    </ul>
+    <h2>🛠️ Installation</h2>
+    <h3>Prerequisites</h3>
+    <ul>
+        <li><a href="https://docs.flutter.dev/get-started/install">Flutter SDK</a> (>= 3.0.0)</li>
+        <li>Android Studio / VS Code with Flutter extension</li>
+        <li>For Linux: <code>libcap-dev</code>, <code>bluez</code>, and <code>wireless-tools</code></li>
+    </ul>
+    <h3>Setup</h3>
+    <ol>
+        <li>Clone the repository:
+<pre><code>git clone https://github.com/your-repo/security-monitor-ai.git
+cd security-monitor-ai
+</code></pre></li>
+        <li>Install dependencies:
+<pre><code>flutter pub get
+</code></pre></li>
+        <li>Run the application:
+<pre><code>flutter run
+</code></pre></li>
+    </ol>
+    <h2>🏗️ Project Structure</h2>
+    <ul>
+        <li><code>lib/models/</code>: Data structures for Devices, Threats, and Sensors.</li>
+        <li><code>lib/services/</code>: Core logic for Security scanning, AI detection, and Sensor streams.</li>
+        <li><code>lib/screens/</code>: UI implementation for Dashboard, Device List, and Logs.</li>
+        <li><code>lib/widgets/</code>: Reusable UI components like ThreatCards.</li>
+    </ul>
+    <h2>⚖️ License</h2>
+    <p>Proprietary Software. All rights reserved. Based on the roadmaps of Shheissee and Shimmy.</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}MaggotCorp - Home{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to MaggotCorp</h1>
+            <p>MaggotCorp is a leading computer software and services company, dedicated to innovative solutions in mobile and web applications.</p>
+            <p class="hero-tagline">"A true pinnacle of society"</p>
+        </div>
+    </section>
+    
+    <section class="about">
+        <h2>About Us</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+            At MaggotCorp, we believe in pushing the boundaries of technology to create solutions that matter. 
+            Our team of dedicated engineers and designers work tirelessly to deliver cutting-edge applications 
+            that combine security, performance, and beautiful user experiences.
+        </p>
+    </section>
+    
+    <section class="products">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            {% for project in projects %}
+                <a href="/{{ project }}" class="product-card-link">
+                    <div class="product-card">
+                        <h3>{{ project | replace('_', ' ') | title }}</h3>
+                        <p>
+                            {% if project == 'dumb_phone' %}
+                                A comprehensive network security application for Android and iOS that provides real-time protection against threats, monitoring network traffic, and blocking malicious connections through two distinct firewall modes.
+                            {% elif project == 'flutter-gangwars' %}
+                                A cross-platform Flutter adaptation of the classic Gangwar game, now available on Android, iOS, Linux, Windows, macOS, and Web.
+                            {% elif project == 'flutter-lab' %}
+                                A comprehensive, intelligent security monitoring application built with Flutter, designed for Android and Linux.
+                            {% elif project == 'flutter-zombieTim' %}
+                                Zombie Tim is the world's first undead AI assistant with a gory, beautiful UI, enhanced intelligence, and word-learning capabilities!
+                            {% endif %}
+                        </p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <section class="about" style="text-align: center;">
+        <h2>Why Choose MaggotCorp?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">🛡️</h3>
+                <h3>Security First</h3>
+                <p>Every application is built with security as a foundational principle, not an afterthought.</p>
+            </div>
+            <div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">⚡</h3>
+                <h3>Performance</h3>
+                <p>Optimized code and efficient algorithms ensure our apps run smoothly on any device.</p>
+            </div>
+            <div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">🎨</h3>
+                <h3>Beautiful Design</h3>
+                <p>Intuitive interfaces and stunning visuals make our applications a joy to use.</p>
+            </div>
+            <div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">🌐</h3>
+                <h3>Cross-Platform</h3>
+                <p>Built with Flutter for seamless experiences across mobile, desktop, and web platforms.</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
