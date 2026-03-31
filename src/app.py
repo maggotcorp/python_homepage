@@ -13,6 +13,7 @@ app.secret_key = 'a_secret_key_for_development'  # Change this in production
 PROJECTS = [
     'dumb_phone',
     'flutter-gangwars',
+    'gangwar-web',
     'flutter-lab',
     'flutter-zombieTim'
 ]
@@ -20,12 +21,15 @@ PROJECTS = [
 DOC_TYPES = {
     'readme': 'README.md',
     'user_guide': 'USER_GUIDE.md',
-    'license': 'LICENSE.md',
+    'license': 'LICENSE',
     'privacy': 'PRIVACY_POLICY.md'
 }
 
 def get_project_path(project):
     """Get the file system path for a project directory."""
+    # Map gangwar-web to gangwar directory
+    if project == 'gangwar-web':
+        return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'gangwar')
     return os.path.join(os.path.dirname(os.path.dirname(__file__)), project)
 
 def read_md_file(path):
