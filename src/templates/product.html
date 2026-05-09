@@ -19,6 +19,8 @@
     </section>
     <section class="readme">
         <h2>README</h2>
-        <div class="readme-content">{{ readme_content | safe }}</div>
+        <div class="readme-content fade-in">
+        {% include readme_template %}
+        </div>
     </section>
 {% endblock %}

@@ -563,6 +563,12 @@ footer p {
 
 /* Utility classes */
 .text-center { text-align: center; }
+
+/* Fade-in animation for README content */
+.readme-content.fade-in {
+    animation: fadeIn 1.6s ease-out;
+    opacity: 1;
+}
 .text-gradient {
     background: var(--gradient-white);
     -webkit-background-clip: text;
