@@ -20,7 +20,7 @@
             <nav>
                 <a href="/">Home</a>
                 {% for project in projects %}
-                    <a href="/{{ project }}">{{ project | replace('_', ' ') | title }}</a>
+                    <a href="/{{ project }}">{{ project_names[project] }}</a>
                 {% endfor %}
             </nav>
         </div>

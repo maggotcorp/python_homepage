@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}Gangwars - Privacy Policy - MaggotCorp{% endblock %}
-
-{% block content %}
-<div class="container document-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gangwars Privacy Policy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
     <h1>Privacy Policy for Gangwars</h1>
     <p><strong>Effective Date:</strong> March 26, 2026</p>
     <h2>Introduction</h2>
@@ -50,4 +54,5 @@
     <h2>Contact Us</h2>
     <p>For questions: privacy@gangwars.app</p>
     </div>
-{% endblock %}
+</body>
+</html>

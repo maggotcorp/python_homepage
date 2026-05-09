@@ -29,7 +29,3 @@ We may update this policy periodically. Check this page for changes.
 ## Contact
 
 For questions, contact privacy@maggotcorp.com.
-
-## License
-
-This application is proprietary software owned by MaggotCorp. See the LICENSE file for details.

@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}Zombie Tim - Privacy Policy - MaggotCorp{% endblock %}
-
-{% block content %}
-<div class="container document-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombie Tim Privacy Policy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
     <h1>Privacy Policy</h1>
     <p><strong>Effective Date:</strong> March 16, 2026</p>
     <h2>Introduction</h2>
@@ -51,7 +55,7 @@
     <h2>Contact Us</h2>
     <p>If you have any questions about this Privacy Policy, please contact us at:</p>
     <p>Zombie Tim Development Team<br>
-Email: privacy@zombietim.app</p>
+Email: timotheuzi@hotmail.com</p>
     <h2>Data Retention</h2>
     <ul>
         <li>Dictionary data is retained as long as the app is installed</li>
@@ -67,4 +71,5 @@ Email: privacy@zombietim.app</p>
     </ul>
     <p>By using Zombie Tim, you agree to the terms of this Privacy Policy.</p>
     </div>
-{% endblock %}
+</body>
+</html>

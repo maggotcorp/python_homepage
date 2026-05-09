@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}Dumb Phone - User Guide - MaggotCorp{% endblock %}
-
-{% block content %}
-<div class="container document-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dumb Phone User Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
     <h1>Dumb Phone User Guide</h1>
     <p>Welcome to Dumb Phone! This guide will help you understand and use the features of this network security application to protect your device and privacy.</p>
     <h2>Table of Contents</h2>
@@ -164,4 +168,5 @@
     </ol>
     <p><strong>Need Help?</strong> Open an issue on the project repository for support.</p>
     </div>
-{% endblock %}
+</body>
+</html>

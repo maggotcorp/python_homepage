@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}Gangwars - User Guide - MaggotCorp{% endblock %}
-
-{% block content %}
-<div class="container document-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gangwar User Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
     <h1>Gangwar User Guide 🎮</h1>
     <p>Welcome to the streets. This guide will help you navigate the dangerous world of Gangwar and build your criminal empire.</p>
     <h2>🏁 Objective</h2>
@@ -70,4 +74,5 @@
     </ul>
     <p><strong>Good luck. You're going to need it.</strong> 💰🔫🏙️</p>
     </div>
-{% endblock %}
+</body>
+</html>

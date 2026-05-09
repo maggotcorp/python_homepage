@@ -23,7 +23,3 @@ This guide provides instructions on how to use and navigate the MaggotCorp homep
 ## Contact
 
 For support, contact MaggotCorp support team.
-
-## License
-
-This application is proprietary software owned by MaggotCorp. See the LICENSE file for details.

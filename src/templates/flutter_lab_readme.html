@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}Flutter Lab - README - MaggotCorp{% endblock %}
-
-{% block content %}
-<div class="container document-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Monitor AI README</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
     <h1>Security Monitor AI 🛡️</h1>
     <p>A comprehensive, intelligent security monitoring application built with Flutter, designed for Android and Linux. This project merges and enhances the functionality of the <strong>Shheissee</strong> IDS and <strong>Shimmy</strong> monitoring tools into a modern, beautiful GUI application.</p>
     <h2>🚀 Overview</h2>
@@ -48,27 +52,5 @@
         <li>Android Studio / VS Code with Flutter extension</li>
         <li>For Linux: <code>libcap-dev</code>, <code>bluez</code>, and <code>wireless-tools</code></li>
     </ul>
-    <h3>Setup</h3>
-    <ol>
-        <li>Clone the repository:
-<pre><code>git clone https://github.com/your-repo/security-monitor-ai.git
-cd security-monitor-ai
-</code></pre></li>
-        <li>Install dependencies:
-<pre><code>flutter pub get
-</code></pre></li>
-        <li>Run the application:
-<pre><code>flutter run
-</code></pre></li>
-    </ol>
-    <h2>🏗️ Project Structure</h2>
-    <ul>
-        <li><code>lib/models/</code>: Data structures for Devices, Threats, and Sensors.</li>
-        <li><code>lib/services/</code>: Core logic for Security scanning, AI detection, and Sensor streams.</li>
-        <li><code>lib/screens/</code>: UI implementation for Dashboard, Device List, and Logs.</li>
-        <li><code>lib/widgets/</code>: Reusable UI components like ThreatCards.</li>
-    </ul>
-    <h2>⚖️ License</h2>
-    <p>Proprietary Software. All rights reserved. Based on the roadmaps of Shheissee and Shimmy.</p>
-    </div>
-{% endblock %}
+</body>
+</html>

@@ -1,39 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}{{ project | replace('_', ' ') | title }} - MaggotCorp{% endblock %}
+{% block title %}{{ project_name }} - MaggotCorp{% endblock %}
 
 {% block content %}
     <section class="hero product-hero">
-        <h1>{{ project | replace('_', ' ') | title }}</h1>
-        <p>
-            {% if project == 'dumb_phone' %}
-                A comprehensive network security application for Android and iOS that provides real-time protection against threats, monitoring network traffic, and blocking malicious connections through two distinct firewall modes.
-            {% elif project == 'flutter-gangwars' %}
-                A cross-platform Flutter adaptation of the classic Gangwar game, now available on Android, iOS, Linux, Windows, macOS, and Web.
-            {% elif project == 'flutter-lab' %}
-                A comprehensive, intelligent security monitoring application built with Flutter, designed for Android and Linux.
-            {% elif project == 'gangwar-web' %}
-                A brutal text-based role-playing game set in a dystopian urban wasteland where you build and command a criminal empire through drug trafficking, violent gang warfare, and ruthless street survival.
-                <br><a href="https://gangwars.pythonanywhere.com/" target="_blank">gangwar</a>
-            {% elif project == 'flutter-zombieTim' %}
-                Zombie Tim is the world's first undead AI assistant with a gory, beautiful UI, enhanced intelligence, and word-learning capabilities!
-            {% endif %}
-        </p>
+        <h1>{{ project_name }}</h1>
+        <p>{{ project_description }}</p>
     </section>
     <section class="documents">
         <h2>Documents</h2>
         <ul class="document-grid">
             {% for doc in doc_types %}
-                <a href="/{{ project }}/{{ doc }}" class="document-card-link">
-                    <li class="document-card">
-                        <h3>{{ doc | replace('_', ' ') | title }}</h3>
-                    </li>
-                </a>
+                <li class="document-card">
+                    <a href="/{{ project }}/{{ doc }}">{{ doc_type_names[doc] }}</a>
+                </li>
             {% endfor %}
         </ul>
     </section>
-    <!--<section class="readme">
+    <section class="readme">
         <h2>README</h2>
         <div class="readme-content">{{ readme_content | safe }}</div>
-    </section>!-->
+    </section>
 {% endblock %}

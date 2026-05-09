@@ -1,66 +1,18 @@
-{% extends "base.html" %}
-
-{% block title %}Gangwars - README - MaggotCorp{% endblock %}
-
-{% block content %}
-<div class="container document-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gangwar README</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
     <h1>Gangwar</h1>
     <img src="assets/images/logo.png" alt="Gangwar Logo">
     <p>A cross-platform Flutter adaptation of the classic Gangwar game, now available on Android, iOS, Linux, Windows, macOS, and Web.</p>
     <h2>🎮 About the Game</h2>
     <p>Gangwar is a strategic street gang simulation game where you build your criminal empire, trade drugs, acquire weapons, and battle rival gangs to dominate the city streets.</p>
-    <h2>🚀 Getting Started</h2>
-    <h3>Prerequisites</h3>
-    <ul>
-        <li><strong>Flutter SDK</strong> (3.0.0 or higher)</li>
-        <li><strong>Dart SDK</strong> (3.0.0 or higher)</li>
-        <li><strong>Platform-specific requirements</strong>:</li>
-        <ul>
-            <li><strong>Android</strong>: Android Studio, Java JDK</li>
-            <li><strong>iOS</strong>: Xcode, macOS</li>
-            <li><strong>Linux</strong>: Clang, CMake, Ninja, GTK development libraries</li>
-            <li><strong>Windows</strong>: Visual Studio 2022</li>
-            <li><strong>Web</strong>: Chrome or Firefox</li>
-        </ul>
-    </ul>
-    <h3>Installation</h3>
-    <ol>
-        <li><strong>Clone the repository</strong>:
-<pre><code>git clone https://github.com/timotheuzi/flutter-gangwars.git
-cd flutter-gangwars
-</code></pre></li>
-        <li><strong>Install dependencies</strong>:
-<pre><code>make install-deps
-</code></pre>
-or manually:
-<pre><code>flutter pub get
-</code></pre></li>
-        <li><strong>Run the game</strong>:
-<pre><code>make run
-</code></pre></li>
-    </ol>
-    <h2>📱 Platform-Specific Builds</h2>
-    <h3>Android Build (Google Play Ready)</h3>
-    <p>Build the App Bundle for Google Play:</p>
-<pre><code>flutter build appbundle
-</code></pre>
-    <p>Output: <code>build/app/outputs/bundle/release/app-release.aab</code></p>
-    <p>Or build the APK:</p>
-<pre><code>make build-android
-</code></pre>
-    <p>Output: <code>build/app/outputs/flutter-apk/app-release.apk</code></p>
-    <h3>Linux Build</h3>
-<pre><code>make build-linux
-</code></pre>
-    <p>Output: <code>build/linux/x64/release/bundle/</code></p>
-    <h3>iOS Build</h3>
-<pre><code>make build-ios
-</code></pre>
-    <p>Output: <code>build/ios/iphoneos/Runner.app</code></p>
-    <h3>Web Build</h3>
-<pre><code>make build-web
-</code></pre>
-    <p>Output: <code>build/web/</code></p>
     <h2>📖 User Guide</h2>
     <p>For detailed gameplay instructions, check out the <a href="USER_GUIDE.md">USER_GUIDE.md</a>.</p>
     <h2>🎯 Game Features</h2>
@@ -91,25 +43,10 @@ or manually:
     </ul>
     <h2>🏗️ Development</h2>
     <p>The project structure:</p>
-<pre><code>gangwar/
-├── lib/
-│   ├── main.dart                  # App entry point
-│   ├── models/                    # Game state & data models
-│   ├── providers/                 # State management
-│   ├── screens/                   # UI screens
-│   └── widgets/                   # Reusable UI components
-├── assets/                        # Game assets
-├── android/                       # Android configuration (com.gangwar.gangwars)
-├── Makefile                       # Build system
-├── pubspec.yaml                   # Dependencies
-├── README.md                      # Documentation
-└── USER_GUIDE.md                  # Gameplay instructions
-</code></pre>
-    <h2>🤝 Contributing</h2>
-    <p>Contributions are welcome! Please follow the existing code style and include screenshots for UI changes.</p>
     <h2>🏆 License</h2>
     <p>This project is licensed under the <strong>MaggotCorp Proprietary License</strong>. See <a href="LICENSE">LICENSE</a> for details.</p>
-    <p><strong>© 2025 MaggotCorp. All rights reserved.</strong></p>
+    <p><strong>© 2026 MaggotCorp. All rights reserved.</strong></p>
     <p><strong>Original Game: timotheuzi@hotmail.com</strong></p>
     </div>
-{% endblock %}
+</body>
+</html>

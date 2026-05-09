@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}Dumb Phone - README - MaggotCorp{% endblock %}
-
-{% block content %}
-<div class="container document-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dumb Phone README</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
     <h1>Dumb Phone</h1>
     <p>A comprehensive network security application for Android and iOS that provides real-time protection against threats, monitoring network traffic, and blocking malicious connections through two distinct firewall modes.</p>
     <h2>Features</h2>
@@ -17,106 +21,12 @@
         <li><strong>Threat Intelligence</strong>: Pre-loaded database of high-risk countries and IP ranges.</li>
         <li><strong>Log Retention</strong>: Configurable log retention with automatic cleanup.</li>
     </ul>
-    <h2>Getting Started</h2>
-    <h3>Prerequisites</h3>
-    <ul>
-        <li>Flutter SDK (>= 3.16.0)</li>
-        <li>Android SDK (with NDK support)</li>
-        <li>Xcode (for iOS builds)</li>
-        <li>ADB (for Android device management)</li>
-    </ul>
-    <h3>Installation</h3>
-    <ol>
-        <li>Clone the repository:
-<pre><code>git clone <repository-url>
-cd dumb_phone
-</code></pre></li>
-        <li>Install dependencies:
-<pre><code>flutter pub get
-</code></pre></li>
-        <li>Build the application:</li>
-    </ol>
-    <p><strong>Android:</strong>
-<pre><code>make android
-</code></pre></p>
-    <p><strong>iOS:</strong>
-<pre><code>make ios
-</code></pre></p>
-    <ol start="4">
-        <li>Run on a connected device:</li>
-    </ol>
-    <p><strong>Android:</strong>
-<pre><code>make run-android
-</code></pre></p>
-    <h2>Development</h2>
-    <p>The project uses a standard Flutter structure with a clean architecture approach:
-- <code>lib/data</code>: Data models, database helpers, and services.
-- <code>lib/ui</code>: Screens and UI components.
-- <code>lib/viewmodel</code>: Application state and logic.
-- <code>android/</code>: Native Android implementation for VPN services.
-- <code>ios/</code>: Native iOS implementation.</p>
-    <h3>Common Commands</h3>
-    <ul>
-        <li><code>make lint</code>: Run Flutter analyzer.</li>
-        <li><code>make format</code>: Format the code.</li>
-        <li><code>make test</code>: Run unit tests.</li>
-        <li><code>make clean</code>: Clean build artifacts.</li>
-        <li><code>make permissions</code>: Grant necessary permissions via ADB (for development).</li>
-    </ul>
-    <h2>Google Play Store Deployment</h2>
-    <h3>Signing Configuration</h3>
-    <p>The project is configured for release signing. To set up signing:</p>
-    <ol>
-        <li>Create a keystore file:
-<pre><code>keytool -genkey -v -keystore dumb-phone-release.keystore -alias dumb-phone -keyalg RSA -keysize 2048 -validity 10000
-</code></pre></li>
-        <li>Create a <code>keystore.properties</code> file in the project root:
-<pre><code>storeFile=dumb-phone-release.keystore
-storePassword=your_store_password
-keyAlias=dumb-phone
-keyPassword=your_key_password
-</code></pre></li>
-        <li>Build a signed release:
-<pre><code>flutter build apk --release
-</code></pre></li>
-    </ol>
-    <h3>ProGuard</h3>
-    <p>The project includes ProGuard rules for code obfuscation and optimization. The release build automatically applies these rules.</p>
-    <h2>iOS Deployment</h2>
-    <h3>Code Signing</h3>
-    <ol>
-        <li>Open the iOS project in Xcode:
-<pre><code>open ios/Runner.xcworkspace
-</code></pre></li>
-        <li>Configure signing in Xcode:
-   - Select the Runner target
-   - Go to Signing & Capabilities
-   - Select your team and provisioning profile</li>
-        <li>Build for release:
-<pre><code>flutter build ios --release
-</code></pre></li>
-    </ol>
-    <h2>Architecture</h2>
-    <p>The application follows the MVVM (Model-View-ViewModel) pattern:</p>
-    <ul>
-        <li><strong>Models</strong>: Data structures for firewall rules, logs, and country blacklists.</li>
-        <li><strong>ViewModels</strong>: Business logic and state management using Flutter's ValueNotifier.</li>
-        <li><strong>Views</strong>: UI screens and widgets.</li>
-        <li><strong>Services</strong>: Native Android/iOS services for VPN and firewall functionality.</li>
-    </ul>
-    <h2>Database Schema</h2>
-    <p>The application uses SQLite for local storage with the following tables:</p>
-    <ul>
-        <li><code>blocklist_entries</code>: Country blacklist configurations.</li>
-        <li><code>country_ip_ranges</code>: IP ranges for blacklisted countries.</li>
-        <li><code>firewall_rules</code>: Custom firewall rules.</li>
-        <li><code>firewall_logs</code>: Network activity logs.</li>
-    </ul>
     <h2>Privacy</h2>
     <p>All processing and logging happen locally on your device. Your network traffic data is never sent to external servers.</p>
     <h2>License</h2>
     <p>This project is licensed under the MIT License - see the LICENSE file for details.</p>
-    <h2>Support</h2>
+    <!--<h2>Support</h2>
     <p>For issues and feature requests, please open an issue on the project repository.</p>
-    </div>
-{% endblock %}
+    </div> -->
+</body>
+</html>

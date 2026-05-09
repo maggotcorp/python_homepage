@@ -24,24 +24,10 @@
         <h2>Our Products</h2>
         <div class="product-grid">
             {% for project in projects %}
-                <a href="/{{ project }}" class="product-card-link">
-                    <div class="product-card">
-                        <h3>{{ project | replace('_', ' ') | title }}</h3>
-                        <p>
-                            {% if project == 'dumb_phone' %}
-                                A comprehensive network security application for Android and iOS that provides real-time protection against threats, monitoring network traffic, and blocking malicious connections through two distinct firewall modes.
-                            {% elif project == 'flutter-gangwars' %}
-                                A cross-platform Flutter adaptation of the classic Gangwar game, now available on Android, iOS, Linux, Windows, macOS, and Web.
-                            {% elif project == 'flutter-lab' %}
-                                A comprehensive, intelligent security monitoring application built with Flutter, designed for Android and Linux.
-                            {% elif project == 'gangwar-web' %}
-                                A brutal text-based role-playing game set in a dystopian urban wasteland where you build and command a criminal empire through drug trafficking, violent gang warfare, and ruthless street survival.
-                            {% elif project == 'flutter-zombieTim' %}
-                                Zombie Tim is the world's first undead AI assistant with a gory, beautiful UI, enhanced intelligence, and word-learning capabilities!
-                            {% endif %}
-                        </p>
-                    </div>
-                </a>
+                <div class="product-card">
+                    <h3><a href="/{{ project }}">{{ project_names[project] }}</a></h3>
+                    <p>{{ project_descriptions[project] }}</p>
+                </div>
             {% endfor %}
         </div>
     </section>

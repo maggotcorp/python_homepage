@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}Zombie Tim - README - MaggotCorp{% endblock %}
-
-{% block content %}
-<div class="container document-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombie Tim README</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
     <h1>🧟 Zombie Tim - The Undead AI Assistant 🧟</h1>
     <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Flutter-3.0+-blue.svg" alt="Flutter"></a>
     <a href="https://flutter.dev/multi-platform"><img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web%20%7C%20Desktop-brightgreen.svg" alt="Platform"></a>
@@ -128,86 +132,9 @@ flutter pub get
     </ol>
     <h2>📖 User Guide</h2>
     <p>For detailed instructions on how to use Zombie Tim, please refer to <a href="USER_GUIDE.md">USER_GUIDE.md</a>.</p>
-    <h2>🧪 Testing</h2>
-    <p>Run the comprehensive test suite:</p>
-<pre><code>flutter test
-</code></pre>
-    <p>Tests include:</p>
-    <ul>
-        <li>Word learning and memory</li>
-        <li>Command handling</li>
-        <li>Response generation</li>
-        <li>Error handling</li>
-    </ul>
-    <h2>🔧 Configuration</h2>
-    <p>Customize Zombie Tim in <code>lib/utils/zombie_theme.dart</code>:</p>
-<pre><code>// Adjust blood colors
-static const Color bloodRed = Color(0xFF8B0000);
-static const Color freshBlood = Color(0xFFD10000);
-
-// Change zombie personality
-final genericResponses = [
-  "Custom response 1",
-  "Custom response 2",
-];
-</code></pre>
-    <h2>📦 Dependencies</h2>
-    <table>
-        <tr>
-            <th>Package</th>
-            <th>Version</th>
-            <th>Purpose</th>
-        </tr>
-        <tr>
-            <td><code>flutter</code></td>
-            <td>3.0+</td>
-            <td>Core framework</td>
-        </tr>
-        <tr>
-            <td><code>cupertino_icons</code></td>
-            <td>^1.0.2</td>
-            <td>iOS-style icons</td>
-        </tr>
-        <tr>
-            <td><code>http</code></td>
-            <td>^1.1.0</td>
-            <td>API requests</td>
-        </tr>
-        <tr>
-            <td><code>sqflite</code></td>
-            <td>^2.3.0</td>
-            <td>SQLite Database</td>
-        </tr>
-        <tr>
-            <td><code>path</code></td>
-            <td>^1.8.3</td>
-            <td>File paths</td>
-        </tr>
-    </table>
-    <h2>🤝 Contributing</h2>
-    <p>We welcome contributions! Please follow these steps:</p>
-    <ol>
-        <li><strong>Fork the repository</strong></li>
-        <li><strong>Create a feature branch:</strong>
-<pre><code>git checkout -b feature/your-feature
-</code></pre></li>
-        <li><strong>Commit your changes:</strong>
-<pre><code>git commit -m "Add your feature"
-</code></pre></li>
-        <li><strong>Push to the branch:</strong>
-<pre><code>git push origin feature/your-feature
-</code></pre></li>
-        <li><strong>Open a Pull Request</strong></li>
-    </ol>
-    <h3>🎨 Design Guidelines</h3>
-    <ul>
-        <li>Maintain the <strong>gory zombie aesthetic</strong></li>
-        <li>Use <strong>blood red and zombie green</strong> colors</li>
-        <li>Keep responses <strong>funny but helpful</strong></li>
-        <li>Add <strong>zombie personality</strong> to all interactions</li>
-    </ul>
     <h2>📝 License</h2>
     <p>This project is licensed under the <strong>MIT License</strong> - see the <a href="LICENSE">LICENSE</a> file for details.</p>
     <p><strong>🧟 Zombie Tim - The AI assistant that's dead serious about helping you! 🧟</strong></p>
     </div>
-{% endblock %}
+</body>
+</html>

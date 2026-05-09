@@ -350,16 +350,6 @@ section {
     padding: 1rem;
 }
 
-.product-card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
-
-.product-card-link:hover {
-    text-decoration: none;
-}
-
 .product-card {
     background: rgba(26, 26, 26, 0.9);
     backdrop-filter: blur(10px);
@@ -465,18 +455,6 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
-    list-style: none;
-    padding: 0;
-}
-
-.document-card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
-
-.document-card-link:hover {
-    text-decoration: none;
 }
 
 .document-card {
@@ -495,7 +473,10 @@ section {
 }
 
 .document-card h3 {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
+}
+
+.document-card h3 a {
     font-family: var(--font-fantasy);
     color: var(--white);
     font-weight: 600;

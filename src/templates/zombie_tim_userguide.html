@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}Zombie Tim - User Guide - MaggotCorp{% endblock %}
-
-{% block content %}
-<div class="container document-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombie Tim User Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container document-content">
     <h1>🧟 Zombie Tim - User Guide 🧟</h1>
     <p>Welcome to the official user guide for <strong>Zombie Tim</strong>, your favorite undead AI assistant! This guide will help you navigate the gory details of interacting with Tim and making the most of his decaying brain.</p>
     <h2>🚀 Getting Started</h2>
@@ -56,16 +60,6 @@
         <li><strong>Database Size</strong>: See how much space Tim's memories are taking up.</li>
         <li><strong>Status</strong>: Check if Tim is feeling particularly "hungry" or "smart."</li>
     </ul>
-    <h2>🏗 Building from Source</h2>
-    <p>If you are a developer, you can build Zombie Tim using the included <code>Makefile</code>:</p>
-    <ul>
-        <li><code>make android</code>: Build the Release APK.</li>
-        <li><code>make linux</code>: Build the Linux binary.</li>
-        <li><code>make podman-setup</code>: (Linux Hosts) Setup the macOS builder container (Requires Podman and Ansible).</li>
-        <li><code>make build-macos-podman</code>: Build the macOS version using the container.</li>
-        <li><code>make build-ios-podman</code>: Build the iOS version using the container.</li>
-        <li><code>make test</code>: Run the undead test suite.</li>
-    </ul>
     <h2>🆘 Support & Feedback</h2>
     <p>If Tim becomes too "braindead" or encounters an error:</p>
     <ol>
@@ -75,4 +69,5 @@
     </ol>
     <p><em>Remember: Tim might be undead, but his passion for clean code is very much alive!</em></p>
     </div>
-{% endblock %}
+</body>
+</html>

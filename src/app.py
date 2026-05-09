@@ -8,29 +8,48 @@ import markdown
 from flask import Flask, render_template, abort
 
 app = Flask(__name__)
-app.secret_key = 'a_secret_key_for_development'  # Change this in production
 
 PROJECTS = [
     'dumb_phone',
     'flutter-gangwars',
-    'gangwar-web',
     'flutter-lab',
-    'flutter-zombieTim'
+    'zombieTim'
 ]
+
+# Map project slugs to their display names
+PROJECT_NAMES = {
+    'dumb_phone': 'Dumb Phone',
+    'flutter-gangwars': 'Gangwars',
+    'flutter-lab': 'Security Monitor AI',
+    'zombieTim': 'Zombie Tim'
+}
+
+# Map project slugs to their descriptions
+PROJECT_DESCRIPTIONS = {
+    'dumb_phone': 'A comprehensive network security application for Android and iOS that provides real-time protection against threats, monitoring network traffic, and blocking malicious connections through two distinct firewall modes.',
+    'flutter-gangwars': 'A cross-platform Flutter adaptation of the classic Gangwar game, now available on Android, iOS, Linux, Windows, macOS, and Web.',
+    'flutter-lab': 'A comprehensive, intelligent security monitoring application built with Flutter, designed for Android and Linux.',
+    'zombieTim': 'Zombie Tim is the world\'s first undead AI assistant with a gory, beautiful UI, enhanced intelligence, and word-learning capabilities!'
+}
 
 DOC_TYPES = {
     'readme': 'README.md',
     'user_guide': 'USER_GUIDE.md',
-    'license': 'LICENSE',
+    'license': 'LICENSE.md',
     'privacy': 'PRIVACY_POLICY.md'
 }
 
+DOC_TYPE_NAMES = {
+    'readme': 'README',
+    'user_guide': 'User Guide',
+    'license': 'License',
+    'privacy': 'Privacy Policy'
+}
+
 def get_project_path(project):
-    """Get the file system path for a project directory."""
-    # Map gangwar-web to gangwar directory
-    if project == 'gangwar-web':
-        return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'gangwar')
-    return os.path.join(os.path.dirname(os.path.dirname(__file__)), project)
+    """Get the file system path for a project directory.
+    Projects are siblings of the homepage directory in the workspace."""
+    return os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), project)
 
 def read_md_file(path):
     """Read and convert a markdown file to HTML."""
@@ -39,29 +58,6 @@ def read_md_file(path):
             content = f.read()
         return markdown.markdown(content)
     return None
-
-# class EditorForm(FlaskForm):
-#     content = TextAreaField('Content')
-#     submit = SubmitField('Save')
-#
-# @app.route('/admin/about', methods=['GET', 'POST'])
-# def admin_about():
-#     form = EditorForm()
-#     data_path = os.path.join(os.path.dirname(__file__), 'data', 'about.json')
-#
-#     if form.validate_on_submit():
-#         with open(data_path, 'w') as f:
-#             json.dump({'content': form.content.data}, f)
-#         return redirect(url_for('home'))
-#
-#     try:
-#         with open(data_path, 'r') as f:
-#             data = json.load(f)
-#             form.content.data = data.get('content', '')
-#     except FileNotFoundError:
-#         form.content.data = ''
-#
-#     return render_template('admin_about.html', form=form)
 
 @app.route('/')
 def home():
@@ -84,53 +80,38 @@ def product(project):
 
     return render_template('product.html',
                            project=project,
+                           project_name=PROJECT_NAMES.get(project, project),
+                           project_description=PROJECT_DESCRIPTIONS.get(project, ''),
                            readme_content=readme_content,
-                           doc_types=DOC_TYPES.keys())
+                           doc_types=DOC_TYPES.keys(),
+                           doc_type_names=DOC_TYPE_NAMES)
 
 @app.context_processor
 def inject_globals():
     """Inject global variables into templates."""
-    return {"projects": PROJECTS, "current_year": datetime.now().year}
-
-# Mapping from project/doc_type to template names (without .html extension)
-TEMPLATE_MAP = {
-    ('dumb_phone', 'readme'): 'dumb_phone_readme',
-    ('dumb_phone', 'user_guide'): 'dumb_phone_userguide',
-    ('dumb_phone', 'privacy'): 'dumb_phone_privacy',
-    ('flutter-gangwars', 'readme'): 'gangwars_readme',
-    ('flutter-gangwars', 'user_guide'): 'gangwars_userguide',
-    ('flutter-gangwars', 'privacy'): 'gangwars_privacy',
-    ('flutter-lab', 'readme'): 'flutter_lab_readme',
-    ('flutter-lab', 'user_guide'): 'flutter_lab_userguide',
-    ('flutter-lab', 'privacy'): 'flutter_lab_privacy',
-    ('flutter-zombieTim', 'readme'): 'zombie_tim_readme',
-    ('flutter-zombieTim', 'user_guide'): 'zombie_tim_userguide',
-    ('flutter-zombieTim', 'privacy'): 'zombie_tim_privacy',
-}
-
+    return {
+        "projects": PROJECTS,
+        "project_names": PROJECT_NAMES,
+        "project_descriptions": PROJECT_DESCRIPTIONS,
+        "current_year": datetime.now().year
+    }
 
 @app.route('/<project>/<doc_type>')
 def document(project, doc_type):
     """Render a document page for a specific project and document type."""
     if project not in PROJECTS or doc_type not in DOC_TYPES:
         abort(404)
-
-    # First, try to read from the project directory
     file_name = DOC_TYPES[doc_type]
     path = os.path.join(get_project_path(project), file_name)
     content = read_md_file(path)
-
-    if content is not None:
-        # Use the generic document template with markdown content
-        return render_template('document.html', project=project, doc_type=doc_type, content=content)
-
-    # If markdown file doesn't exist, try to use the specific template
-    template_name = TEMPLATE_MAP.get((project, doc_type))
-    if template_name:
-        return render_template(f'{template_name}.html')
-
-    # No content available
-    abort(404)
+    if content is None:
+        abort(404)
+    return render_template('document.html',
+                           project=project,
+                           project_name=PROJECT_NAMES.get(project, project),
+                           doc_type=doc_type,
+                           doc_type_name=DOC_TYPE_NAMES.get(doc_type, doc_type),
+                           content=content)
 
 
 if __name__ == '__main__':
